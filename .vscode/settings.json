@@ -1,0 +1,6 @@
+{
+  "python.analysis.diagnosticMode": "off",
+  "python.analysis.diagnosticSeverityOverrides": {
+    "*": "none"
+  }
+}
