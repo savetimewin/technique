@@ -32,10 +32,25 @@ def returnIndicesThatSumUpToTarget (nums, target):
 
 # optimal solution
 def returnIndicesThatSumUpToTarget (nums, target):
-    n = len(nums)
-    for i in range(n):
-        complement = target - nums[i]
-        if complement in nums:
-            return [i,nums[complement]]
-
+    # Example: nums = [2,7,11,15], target = 17
+    seen = {}
+    for index, element in enumerate(nums): 
+    # 1. we iterate over the indices and values of num. This is an easy way to call out the values of "index" and "element"
+        complement = target - element 
+        # 2. for each element, compute complement so complement = 17 - 2 = 15
+        # 5. complement = 17 - 7 = 10
+        # 8. complement = 17 - 11 = 6
+        # 11. complement = 17 - 15 = 2
+        if complement in seen: 
+        # 3. first iteration, nothing there; complement is not in seen. # note: it is ok to not have anything because you need two elements that add up to target, not 1.
+        # 6. 10 is not in seen    
+        # 9. 6 is not in seen
+        # 12. 2 is in seen
+            return [index, seen[complement]]
+            # 13. return the index that we are at which is 3, aka 4th number. and seen[complement] is seen[2] = 0 from step 10 e.i {2:0, 7:1, 11:3} # returns "[3,0]"
+        seen[element] = index 
+        # 4. seen[element] is 2 and its assignment is 0 e.i. {2:0}
+        # 7. seen[element] is 7 and its assignment is 1 e.i. {2:0, 7:1}
+        # 10. seen[element] is 11 and its assignment is 3 e.i {2:0, 7:1, 11:3}  
+    return None
 
