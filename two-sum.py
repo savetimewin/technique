@@ -31,7 +31,11 @@ def returnIndicesThatSumUpToTarget (nums, target):
     return False
 
 # optimal solution
-
-
+def returnIndicesThatSumUpToTarget (nums, target):
+    n = len(nums)
+    for i in range(n):
+        complement = target - nums[i]
+        if complement in nums:
+            return [i,nums[complement]]
 
 
